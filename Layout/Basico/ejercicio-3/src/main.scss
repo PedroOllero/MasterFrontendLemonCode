@@ -1,0 +1,27 @@
+$primary-color: rgb(68, 149, 121);
+
+nav {
+    background-color: $primary-color;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  div {
+  font-size: 20px;
+  padding: 0 20px;
+  
+    &:hover {
+      background-color: darken($color: $primary-color, $amount: 20%);
+    }
+  
+    @media screen and (max-width: 768px) {
+      text-align: center;
+    }
+  }
+}
+

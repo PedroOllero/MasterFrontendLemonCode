@@ -1,0 +1,49 @@
+$primary-color: #61ce33;
+
+body{
+    background-color: #ccc;
+    font-family: Verdana, sans-serif;
+}
+
+#card{
+    background-color: white;
+    width: 250px;
+    border: 1px solid rgb(120, 120, 120);
+    
+    div{
+        padding: 10px;
+    }
+
+    img{
+        width: 100%;
+    }
+
+    h1{
+        font-weight: 100;
+    }
+
+    p{
+        font-size: 12px;
+        margin-bottom: 24px;
+    }
+
+    #date{
+        text-align: right;
+        margin-bottom: 16px;
+    }
+
+    span{
+        color: $primary-color;
+    }
+
+    button{
+        all: unset;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 10px;
+        color: white;
+        background-color: $primary-color;
+        text-align: center;
+    }
+
+}
