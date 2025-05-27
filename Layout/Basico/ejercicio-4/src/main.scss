@@ -5,7 +5,7 @@ body{
     font-family: Verdana, sans-serif;
 }
 
-#card{
+.card{
     background-color: white;
     width: 250px;
     border: 1px solid rgb(120, 120, 120);
@@ -27,7 +27,7 @@ body{
         margin-bottom: 24px;
     }
 
-    #date{
+    .date{
         text-align: right;
         margin-bottom: 16px;
     }

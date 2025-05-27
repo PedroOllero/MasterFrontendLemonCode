@@ -1,3 +1,7 @@
+$primary-color: red;
+$secondary-color: green;
+$terciary-color: blue;
+
 body {
   background-color: azure;
   font-family: sans-serif;
@@ -12,67 +16,42 @@ body {
   gap: 5px;
 }
 
-@mixin box($box-color) {
+.box {
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+}
 
-  &:nth-child(1) {
-    background-color: darken($color: $box-color, $amount: 25%);
-  }
-
-  &:nth-child(2) {
-    background-color: darken($color: $box-color, $amount: 20%);
-  }
-
-  &:nth-child(3) {
-    background-color: darken($color: $box-color, $amount: 15%);
-  }
-
-  &:nth-child(4) {
-    background-color: darken($color: $box-color, $amount: 10%);
-  }
-  &:nth-child(5) {
-    background-color: $box-color;
-    width: 200px;
-  }
-
-  &:nth-child(6) {
-    background-color: lighten($color: $box-color, $amount: 10%);
-  }
-
-  &:nth-child(7) {
-    background-color: lighten($color: $box-color, $amount: 15%);
-  }
-
-  &:nth-child(8) {
-    background-color: lighten($color: $box-color, $amount: 20%);
-  }
-
-  &:nth-child(9) {
-    background-color: lighten($color: $box-color, $amount: 25%);
+@mixin darkenHandler($numberOfChild, $boxColor) {
+  @for $colNumber from 1 to $numberOfChild {
+    .darken-#{$colNumber} {
+      background-color: darken($color: $boxColor, $amount: $colNumber * 5%);
+    }
   }
 }
 
-.container-1 {
-  @extend .container;
-  .box{
-    @include box(rgb(0, 0, 255))
+@mixin lightenHandler($numberOfChild, $boxColor) {
+  @for $colNumber from 1 to $numberOfChild {
+    .lighten-#{$colNumber} {
+      background-color: lighten($color: $boxColor, $amount: $colNumber * 5%);
+    }
   }
 }
 
-.container-2 {
-  @extend .container;
-  .box{
-    @include box(rgb(0, 255, 0))
+@mixin container-style($number, $color) {
+  .container-#{$number} {
+    @extend .container;
+    .base-color {
+      background-color: $color;
+      width: 200px;
+    }
+    @include darkenHandler(5, $color);
+    @include lightenHandler(5, $color);
   }
 }
 
-.container-3 {
-  @extend .container;
-  .box{
-    @include box(rgb(255, 0, 0))
-  }
-}
+@include container-style(1, $primary-color );
+@include container-style(2, $secondary-color );
+@include container-style(3, $terciary-color );
